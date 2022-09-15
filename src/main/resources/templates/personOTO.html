@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:insert="fragments/header :: defaultheader"></div>
+<head>
+  <title>Добавление нового человека</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+<br>
+<center>
+<form th:action="${'/personOTO/add/'}" method="post" >
+  <input type="text" name="name" placeholder="Введите имя человека" class="btn btn-light">
+    <select name="number" class="btn btn-light">
+      <div th:each="element : ${pasportOTO}">
+      <option th:text="${element.number}" th:value="${element.id}"></option>
+      </div>
+    </select>
+  <br>
+  <br>
+  <button type="submit" class="btn btn-dark">Добавить (один к одному)</button>
+</form>
+</center>
+</body>
+</html>

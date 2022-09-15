@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+  <title>Users info</title>
+</head>
+<div th:insert="fragments/header :: defaultheader"></div>
+<center>
+<body>
+      <div th:each="el : ${users}" class="btn btn-light">
+        <p th:text="${el.username}" class="btn btn-light"></p>
+          <p th:text="${el.roles}" class="btn btn-light"></p>
+          <a th:href="'/admin/edit/' + ${el.id}" class="btn btn-dark">Редактировать роль</a>
+      </div>
+</body>
+</center>
+</html>

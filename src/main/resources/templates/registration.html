@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:insert="fragments/header :: defaultheader"></div>
+<head>
+  <title>Spring Security Example </title>
+</head>
+<body>
+
+
+  <center>
+
+
+    <div th:if="${error}" class="p-3 text-bg-danger">
+      Пользователь с похожими данными уже есть в системе!
+    </div>
+    <br>
+    <center>
+      Регистрация нового пользователя
+    <br>
+    <center>
+      <form th:action="@{/registration}" method="post" >
+        <input type="text"  class="btn btn-light" placeholder="Введите логин"  name="username"/><br>
+        <input type="password" class="btn btn-light" placeholder="Введите пароль"  name="password"/><br>
+        <br><input type="submit" class="btn btn-warning"  value="   Зарегестрироваться   "/>
+        <a href="/login" class="btn btn-outline-dark me-2">У меня есть аккаунт</a>
+      </form>
+    </center>
+    </center>
+  </center>
+</body>
+</html>

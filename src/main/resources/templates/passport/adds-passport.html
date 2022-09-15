@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Passport</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+<br>
+<form action="/passport/adds" method="post" style="display: inline-block" th:object="${passport}">
+
+    <input type="text" class="btn btn-light"  th:field="*{name}"  id="name" name="name" placeholder="Имя">
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+    <input type="text" class="btn btn-light" th:field="*{surname}"   id="surname" name="surname" placeholder="Фамилия">
+    <div th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></div>
+    <input type="text" class="btn btn-light" th:field="*{petronymic}"   id="petronymic" name="petronymic" placeholder="Отчество">
+    <div th:if="${#fields.hasErrors('petronymic')}" th:errors="*{petronymic}"></div>
+    <input type="text" class="btn btn-light"  th:field="*{snils_number}"  id="snils_number" name="snils_number" placeholder="Номер Снилс">
+    <div th:if="${#fields.hasErrors('snils_number')}" th:errors="*{snils_number}"></div>
+    <input type="text" class="btn btn-light"  th:field="*{oms_number}"  id="oms_number" name="oms_number" placeholder="Номер ОМС">
+    <div th:if="${#fields.hasErrors('oms_number')}" th:errors="*{oms_number}"></div>
+    <input type="submit" value="Добавить данные" class="btn btn-success"><br>
+    <br> <a href="/passport/" class="btn btn-warning">Назад</a>
+</form>
+<br>
+</div>
+</body>
+</html>
