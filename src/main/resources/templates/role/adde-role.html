@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Role</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+<br>
+<form action="/role/adde" method="post" style="display: inline-block" th:object="${role}">
+
+    <input type="text"  th:field="*{nameRole}"  class="btn btn-light" id="nameRole" name="nameRole" placeholder="Название Роли">
+    <div th:if="${#fields.hasErrors('nameRole')}" th:errors="*{nameRole}"></div>
+
+    <input type="submit" value="Добавить" class="btn btn-success"><br>
+    <br><a href="/role/" class="btn btn-warning">Назад</a>
+</form>
+
+
+
+</body>
+</html>

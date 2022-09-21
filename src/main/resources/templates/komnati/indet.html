@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Komnati</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+<br>
+<div th:each="el : ${komnati}" class="btn btn-light" >
+    <h2 th:text="${el.nomerKomnati}"></h2>
+    <h2 th:text="${el.status}"></h2>
+
+    <a th:href="'/komnati/' + ${el.id} " class="btn btn-warning">Подробнее</a>
+
+</div>
+<br>
+<form method="get" action="/komnati/searkomnati"><br>
+    <input type="text" name="nomerKomnati" id="nomerKomnati"  class="btn btn-dark"  placeholder="Поиск...">
+    <input type="submit" value="Найти" class="btn btn-outline-dark me-2">
+</form>
+<br>
+<a href="/komnati/adde" class="btn btn-warning">Добавить cериал</a>
+
+</body>
+</html>

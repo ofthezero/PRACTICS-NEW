@@ -19,8 +19,6 @@ public class MainControllerOTO {
     @Autowired
     private PersonOTORepository personOTORepository;
 
-
-
     @GetMapping("/personOTO")
     public String Main(Model model){
         Iterable<PasportOTO> pasportOTO = pasportOTORepository.findAll();

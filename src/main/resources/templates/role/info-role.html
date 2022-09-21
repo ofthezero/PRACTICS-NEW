@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Role</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+
+<div th:each="el : ${role}" class="btn btn-light">
+    <h2 th:text="${el.nameRole}"></h2>
+
+
+    <a th:href="'/role/edit/'+ ${el.id}" class="btn btn-dark">Изменить</a>
+    <a th:href="'/role/del/'+ ${el.id}" class="btn btn-danger">Удалить</a>
+    <a href="/role/" class="btn btn-warning">Назад</a>
+
+</div>
+
+
+</body>
+</html>

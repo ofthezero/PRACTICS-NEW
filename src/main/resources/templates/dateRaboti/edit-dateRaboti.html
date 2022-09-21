@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>DateRaboti</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+
+<div th:each="el:${dateRaboti}">
+<br>
+        <form th:action="'/dateRaboti/edit/' + ${el.id}" method="post" th:object="${dateRaboti}">
+
+        <input type="text" th:value="${el.daysRaboti}"  th:field="*{daysRaboti}"  class="btn btn-light" id="daysRaboti" name="daysRaboti" placeholder="Название сериала">
+        <div th:if="${#fields.hasErrors('daysRaboti')}" th:errors="*{daysRaboti}"></div>
+        <input type="text" th:value="${el.timesRaboti}"  th:field="*{timesRaboti}"   class="btn btn-light" id="timesRaboti" name="timesRaboti" placeholder="Рейтинг КП">
+        <div th:if="${#fields.hasErrors('timesRaboti')}" th:errors="*{timesRaboti}"></div>
+
+        <input type="submit" value="Изменить сериал" class="btn btn-success"><br>
+        <br><a href="/dateRaboti/" class="btn btn-warning">Назад</a>
+    </form>
+
+
+</div>
+</body>
+</html>

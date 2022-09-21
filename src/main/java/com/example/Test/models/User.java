@@ -15,6 +15,14 @@ public class User {
     private String password;
     private boolean active;
 
+
+    private String familia;
+
+    private String imya;
+
+    private String otchestvo;
+
+
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
@@ -53,6 +61,26 @@ public class User {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public String getFamilia() {return familia;}
+
+    public void setFamilia(String familia) {this.familia = familia;}
+
+    public String getImya() {
+        return imya;
+    }
+
+    public void setImya(String imya) {
+        this.imya = imya;
+    }
+
+    public String getOtchestvo() {
+        return otchestvo;
+    }
+
+    public void setOtchestvo(String otchestvo) {
+        this.otchestvo = otchestvo;
     }
 
     public Set<Role> getRoles() {

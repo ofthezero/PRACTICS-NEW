@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>DateRaboti</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+<br>
+<div th:each="el : ${dateRaboti}" class="btn btn-light" >
+    <h2 th:text="${el.daysRaboti}"></h2>
+    <a th:href="'/dateRaboti/' + ${el.id} " class="btn btn-warning">Подробнее</a>
+
+</div>
+<br>
+<form method="get" action="/dateRaboti/seardateRaboti"><br>
+    <input type="text" name="daysRaboti" id="daysRaboti"  class="btn btn-dark"  placeholder="Поиск...">
+    <input type="submit" value="Найти" class="btn btn-outline-dark me-2">
+</form>
+<br>
+<a href="/dateRaboti/adde" class="btn btn-warning">Добавить</a>
+
+</body>
+</html>

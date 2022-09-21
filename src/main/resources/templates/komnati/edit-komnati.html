@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Komnati</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+
+<div th:each="el:${komnati}">
+<br>
+        <form th:action="'/komnati/edit/' + ${el.id}" method="post" th:object="${komnati}">
+
+        <input type="text" th:value="${el.nomerKomnati}"  th:field="*{nomerKomnati}"  class="btn btn-light" id="nomerKomnati" name="nomerKomnati" placeholder="Название сериала">
+        <div th:if="${#fields.hasErrors('nomerKomnati')}" th:errors="*{nomerKomnati}"></div>
+        <input type="text" th:value="${el.status}" th:field="*{status}"   class="btn btn-light" id="status" name="status" placeholder="Рейтинг КП">
+        <div th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></div>
+            <select  name="nameЕ"  class="btn btn-light">
+                <div th:each="element : ${typeKomnati}">
+                    <option th:text="${element.nameЕ}"></option>
+                </div>
+            </select>
+            <select  name="strana"  class="btn btn-light">
+                <div th:each="element : ${hotel}">
+                    <option th:text="${element.strana}"></option>
+                </div>
+            </select>
+        <input type="submit" value="Изменить" class="btn btn-success"><br>
+        <br><a href="/komnati/" class="btn btn-warning">Назад</a>
+    </form>
+
+
+</div>
+</body>
+</html>

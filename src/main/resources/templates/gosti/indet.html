@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gosti</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+<br>
+<div th:each="el : ${gosti}" class="btn btn-light" >
+    <h2 th:text="${el.familia}"></h2>
+    <h2 th:text="${el.imya}"></h2>
+    <h2 th:text="${el.otchestvo}"></h2>
+
+    <a th:href="'/gosti/' + ${el.id} " class="btn btn-warning">Подробнее</a>
+
+</div>
+<br>
+<form method="get" action="/gosti/seargosti"><br>
+    <input type="text" name="familia" id="familia"  class="btn btn-dark"  placeholder="Поиск...">
+    <input type="submit" value="Найти" class="btn btn-outline-dark me-2">
+</form>
+<br>
+<a href="/gosti/adde" class="btn btn-warning">Добавить cериал</a>
+
+</body>
+</html>

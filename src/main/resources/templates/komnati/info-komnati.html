@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Komnati</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+
+<div th:each="el : ${komnati}" class="btn btn-light">
+    <h2 th:text="${el.nomerKomnati}"></h2>
+    <h2 th:text="${el.status}"></h2>
+    <h4 th:text="${el.getTypeKomnati()}"></h4>
+
+    <a th:href="'/komnati/edit/'+ ${el.id}" class="btn btn-dark">Изменить</a>
+    <a th:href="'/komnati/del/'+ ${el.id}" class="btn btn-danger">Удалить</a>
+    <a href="/komnati/" class="btn btn-warning">Назад</a>
+
+</div>
+
+
+</body>
+</html>

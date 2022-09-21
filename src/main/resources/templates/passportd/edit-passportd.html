@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Passportd</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+
+<div th:each="el:${passportd}">
+<br>
+        <form th:action="'/passportd/edit/' + ${el.id}" method="post" th:object="${passportd}">
+
+        <input type="text" th:value="${el.seriaPassporta}"  th:field="*{seriaPassporta}"  class="btn btn-light" id="seriaPassporta" name="seriaPassporta" placeholder="Номер пасспорта">
+        <div th:if="${#fields.hasErrors('seriaPassporta')}" th:errors="*{seriaPassporta}"></div>
+        <input type="text"  th:field="*{nomerPassporta}"   class="btn btn-light" id="nomerPassporta" name="nomerPassporta" placeholder="Серия пасспорта">
+        <div th:if="${#fields.hasErrors('nomerPassporta')}" th:errors="*{nomerPassporta}"></div>
+
+        <input type="submit" value="Изменить" class="btn btn-success"><br>
+        <br><a href="/passportd/" class="btn btn-warning">Назад</a>
+    </form>
+
+
+</div>
+</body>
+</html>

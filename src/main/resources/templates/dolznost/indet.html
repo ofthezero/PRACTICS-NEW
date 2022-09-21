@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dolznost</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+<br>
+<div th:each="el : ${dolznost}" class="btn btn-light" >
+    <h2 th:text="${el.nameDolznosti}"></h2>
+    <h2 th:text="${el.oklad}"></h2>
+
+    <a th:href="'/dolznost/' + ${el.id} " class="btn btn-warning">Подробнее</a>
+
+</div>
+<br>
+<form method="get" action="/dolznost/seardolznost"><br>
+    <input type="text" name="nameDolznosti" id="nameDolznosti"  class="btn btn-dark"  placeholder="Поиск...">
+    <input type="submit" value="Найти" class="btn btn-outline-dark me-2">
+</form>
+<br>
+<a href="/dolznost/adde" class="btn btn-warning">Добавить cериал</a>
+
+</body>
+</html>

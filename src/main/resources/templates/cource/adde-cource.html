@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cource</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+<br>
+<form action="/cource/adde" method="post" style="display: inline-block" th:object="${cource}">
+
+    <input type="text"  th:field="*{nameCource}"  class="btn btn-light" id="nameCource" name="nameCource" placeholder="Название курса">
+    <div th:if="${#fields.hasErrors('nameCource')}" th:errors="*{nameCource}"></div>
+    <input type="text"  th:field="*{cource}"   class="btn btn-light" id="cource" name="cource" placeholder="Номер Курса">
+    <div th:if="${#fields.hasErrors('cource')}" th:errors="*{cource}"></div>
+    <input type="text"  th:field="*{cources}"  class="btn btn-light" id="cources" name="cources" placeholder="Текст">
+    <div th:if="${#fields.hasErrors('cources')}" th:errors="*{cources}"></div>
+
+
+    <input type="submit" value="Добавить" class="btn btn-success"><br>
+    <br><a href="/cource/" class="btn btn-warning">Назад</a>
+</form>
+
+
+
+</body>
+</html>

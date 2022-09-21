@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TypeKomnati</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+
+<div th:each="el:${typeKomnati}">
+<br>
+        <form th:action="'/typeKomnati/edit/' + ${el.id}" method="post" th:object="${typeKomnati}">
+
+        <input type="text" th:value="${el.nameType}"  th:field="*{nameType}"  class="btn btn-light" id="nameType" name="nameType" placeholder="Название комнаты">
+        <div th:if="${#fields.hasErrors('nameType')}" th:errors="*{nameType}"></div>
+        <input type="text"  th:field="*{stoimost}"   class="btn btn-light" id="stoimost" name="stoimost" placeholder="Стоимость">
+        <div th:if="${#fields.hasErrors('stoimost')}" th:errors="*{stoimost}"></div>
+
+        <input type="submit" value="Изменить сериал" class="btn btn-success"><br>
+        <br><a href="/typeKomnati/" class="btn btn-warning">Назад</a>
+    </form>
+
+
+</div>
+</body>
+</html>

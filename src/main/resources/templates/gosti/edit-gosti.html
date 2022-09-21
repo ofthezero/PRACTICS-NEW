@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Trailers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+
+<div th:each="el:${gosti}">
+<br>
+        <form th:action="'/gosti/edit/' + ${el.id}" method="post" th:object="${gosti}">
+
+        <input type="text" th:value="${el.familia}"  th:field="*{familia}"  class="btn btn-light" id="familia" name="familia" placeholder="Фамилия">
+        <div th:if="${#fields.hasErrors('familia')}" th:errors="*{familia}"></div>
+                <input type="text" th:value="${el.imya}"  th:field="*{imya}"   class="btn btn-light" id="imya" name="imya" placeholder="Имя">
+        <div th:if="${#fields.hasErrors('imya')}" th:errors="*{imya}"></div>
+        <input type="text"  th:value="${el.otchestvo}"  th:field="*{otchestvo}"  class="btn btn-light" id="otchestvo" name="otchestvo" placeholder="Отчество">
+        <div th:if="${#fields.hasErrors('otchestvo')}" th:errors="*{otchestvo}"></div>
+
+                <select  name="seriaPassporta"  class="btn btn-light">
+                        <div th:each="element : ${passportd}">
+                                <option th:text="${element.seriaPassporta}"></option>
+                        </div>
+                </select>
+        <input type="submit" value="Изменить" class="btn btn-success"><br>
+        <br><a href="/gosti/" class="btn btn-warning">Назад</a>
+    </form>
+
+
+</div>
+</body>
+</html>

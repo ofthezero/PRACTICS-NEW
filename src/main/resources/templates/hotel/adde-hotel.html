@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hotel</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+<br>
+<form action="/hotel/adde" method="post" style="display: inline-block" th:object="${hotel}">
+
+    <input type="text"  th:field="*{strana}"  class="btn btn-light" id="strana" name="strana" placeholder="Страна">
+    <div th:if="${#fields.hasErrors('strana')}" th:errors="*{strana}"></div>
+    <input type="text"  th:field="*{gorod}"   class="btn btn-light" id="gorod" name="gorod" placeholder="Город">
+    <div th:if="${#fields.hasErrors('gorod')}" th:errors="*{gorod}"></div>
+    <input type="text"  th:field="*{ulica}"  class="btn btn-light" id="ulica" name="ulica" placeholder="Улица">
+    <div th:if="${#fields.hasErrors('ulica')}" th:errors="*{ulica}"></div>
+    <input type="text"  th:field="*{dom}"  class="btn btn-light" id="dom" name="dom" placeholder="Дом">
+    <div th:if="${#fields.hasErrors('dom')}" th:errors="*{dom}"></div>
+
+    <input type="submit" value="Добавить" class="btn btn-success"><br>
+    <br><a href="/hotel/" class="btn btn-warning">Назад</a>
+
+</form>
+
+
+
+</body>
+</html>

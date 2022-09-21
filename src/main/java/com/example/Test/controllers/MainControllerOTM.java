@@ -30,7 +30,10 @@ public class MainControllerOTM {
     {
         Address address = addressRepository.findByStreet(street);
         Person person = new Person(name, address);
+
         personRepository.save(person);
         return "hello";
     }
 }
+
+

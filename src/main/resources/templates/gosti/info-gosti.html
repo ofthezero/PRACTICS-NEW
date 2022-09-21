@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Trailers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+
+<div th:each="el : ${gosti}" class="btn btn-light">
+    <h2 th:text="${el.familia}"></h2>
+    <h2 th:text="${el.imya}"></h2>
+    <h3 th:text="${el.otchestvo}"></h3>
+
+    <a th:href="'/gosti/edit/'+ ${el.id}" class="btn btn-dark">Изменить</a>
+    <a th:href="'/gosti/del/'+ ${el.id}" class="btn btn-danger">Удалить</a>
+    <a href="/gosti/" class="btn btn-warning">Назад</a>
+
+</div>
+
+
+</body>
+</html>

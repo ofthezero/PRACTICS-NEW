@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Type_pitanie</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+
+<div th:each="el:${type_pitanie}">
+<br>
+        <form th:action="'/type_pitanie/edit/' + ${el.id}" method="post" th:object="${type_pitanie}">
+
+        <input type="text" th:value="${el.name}"  th:field="*{name}"  class="btn btn-light" id="name" name="name" placeholder="Название сериала">
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        <input type="text"  th:field="*{stoimost}"   class="btn btn-light" id="stoimost" name="stoimost" placeholder="Рейтинг КП">
+        <div th:if="${#fields.hasErrors('stoimost')}" th:errors="*{stoimost}"></div>
+
+        <input type="submit" value="Изменить сериал" class="btn btn-success"><br>
+        <br><a href="/type_pitanie/" class="btn btn-warning">Назад</a>
+    </form>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Trailers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+
+<div th:each="el : ${bronirovanie}" class="btn btn-light">
+
+    <p th:text="${el.data}"></p>
+    <h4 th:text="${el.getFamilia()}"></h4>
+    <h4 th:text="${el.getNomerKomnati()}"></h4>
+    <h4 th:text="${el.getType_Pitanie()}"></h4>
+    <a th:href="'/bron/edit/'+ ${el.id}" class="btn btn-dark">Изменить</a>
+    <a th:href="'/bron/del/'+ ${el.id}" class="btn btn-danger">Удалить</a>
+    <a href="/bron/" class="btn btn-warning">Назад</a>
+
+</div>
+
+
+</body>
+</html>

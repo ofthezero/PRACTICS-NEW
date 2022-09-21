@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Role</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+
+<div th:each="el:${role}">
+<br>
+        <form th:action="'/role/edit/' + ${el.id}" method="post" th:object="${role}">
+
+        <input type="text" th:value="${el.nameRole}"  th:field="*{nameRole}"  class="btn btn-light" id="nameRole" name="nameRole" placeholder="Название роли">
+        <div th:if="${#fields.hasErrors('nameRole')}" th:errors="*{nameRole}"></div>
+
+        <input type="submit" value="Изменить" class="btn btn-success"><br>
+        <br><a href="/role/" class="btn btn-warning">Назад</a>
+    </form>
+
+
+</div>
+</body>
+</html>

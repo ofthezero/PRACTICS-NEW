@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bronirovanie</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+
+<div th:each="el:${bronirovanie}">
+<br>
+        <form th:action="'/bron/edit/' + ${el.id}" method="post" th:object="${bronirovanie}">
+
+        <input type="text" th:value="${el.data}"  th:field="*{data}"  class="btn btn-light" id="data" name="data" placeholder="Дата">
+        <div th:if="${#fields.hasErrors('data')}" th:errors="*{data}"></div>
+            <select  name="familia"  class="btn btn-light">
+                <div th:each="element : ${gosti}">
+                    <option th:text="${element.familia}"></option>
+                </div>
+            </select>
+            <select  name="nomerKomnati"  class="btn btn-light">
+                <div th:each="element : ${komnati}">
+                    <option th:text="${element.nomerKomnati}"></option>
+                </div>
+            </select>
+            <select  name="name"  class="btn btn-light">
+                <div th:each="element : ${type_pitanie}">
+                    <option th:text="${element.name}"></option>
+                </div>
+            </select>
+        <input type="submit" value="Изменить" class="btn btn-success"><br>
+        <br><a href="/bron/" class="btn btn-warning">Назад</a>
+    </form>
+
+
+</div>
+</body>
+</html>

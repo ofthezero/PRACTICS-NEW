@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cource</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div th:insert="fragments/header :: defaultheader"></div>
+
+<div th:each="el : ${cource}" class="btn btn-light">
+    <h2 th:text="${el.nameCource}"></h2>
+    <h2 th:text="${el.cource}"></h2>
+    <h2 th:text="${el.cources}"></h2>
+
+    <a th:href="'/cource/edit/'+ ${el.id}" class="btn btn-dark">Изменить</a>
+    <a th:href="'/cource/del/'+ ${el.id}" class="btn btn-danger">Удалить</a>
+    <a href="/cource/" class="btn btn-warning">Назад</a>
+
+</div>
+
+
+</body>
+</html>
